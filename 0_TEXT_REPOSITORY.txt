@@ -1,3 +1,62 @@
+STANDALONE DATA STORAGE WITHIN SEPARATE FILES
+CHATGPT
+
+How can I make a standalone python program that will write files to is own directory when running code that requires that?
+
+To create a standalone Python program that writes files to its own directory, you can use the following steps:
+
+Import the necessary modules: Start by importing the required modules, such as os and sys, which provide functions for working with directories and system-specific parameters.
+
+> import os
+> import sys
+
+Determine the program's directory: Get the current directory path where the Python program is located. You can use sys.argv[0] to retrieve the program's file path and then os.path.dirname() to extract the directory.
+
+> program_dir = os.path.dirname(sys.argv[0])
+
+Create the full file path: Combine the program's directory with the desired filename to create the full file path.
+
+> file_name = "output.txt"
+> file_path = os.path.join(program_dir, file_name)
+
+Write to the file: Use the file path obtained in the previous step to write data to the file.
+python
+
+> data = "Hello, world!"
+
+	| with |
+ 
+> open(file_path, "w") as file: 
+	file.write(data)
+
+Putting it all together, here's an example of a standalone Python program that writes a file to its own directory:
+
+> import os
+> import sys
+
+	# Get the program's directory
+
+> program_dir = os.path.dirname(sys.argv[0])
+
+	# Create the full file path
+
+> file_name = "output.txt"
+  
+	# Example filename
+
+> file_path = os.path.join(program_dir, file_name)
+
+	# Write to the file
+
+> data = "Hello, world!"
+
+	| with |
+ 
+> open(file_path, "w") as file:
+>    file.write(data)
+
+When you run this program, it will create a file named "output.txt" in the same directory where the program is located and write the text "Hello, world!" to it. You can modify the file_name and data variables to suit your needs. 
+
 HOW TO CLONE FROM GITHUB
 - ' four lines ' -> ' Git ' -> ' clone... ' -> ' paste URL '
 
